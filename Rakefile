@@ -25,7 +25,7 @@ task :build do
     end
     @body += node.to_html
   end
-  @body += "</section>" if found_header
+  @body += "</div></section>" if found_header
 
   html = ERB.new(File.read("index.html.erb")).result
 
