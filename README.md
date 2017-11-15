@@ -1,6 +1,6 @@
 # Geodate
 
-**Definition:** a geodate is a geocentric expression of a point in time
+**Definition:** a geodate is a geocentric expression of a point in time.
 
 
 ## Legacy format
@@ -86,6 +86,9 @@ previously defined machine format.
 [37]: https://en.m.wikipedia.org/wiki/Local_mean_time
 
 ## Computer programs
+
+The following open source software use precise astronomical algorithms to
+convert a geodate from machine format into human readable format:
 
 - [Rust library and binary][41] ([source][42])
 - [Android clock][43] ([source][44])
