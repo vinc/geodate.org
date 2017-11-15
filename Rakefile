@@ -48,7 +48,7 @@ rule ".html" => -> (f) { source_for_html(f) } do |t|
 end
 
 def source_for_html(f)
-  f.sub("README", "index").ext(".md")
+  f.sub("index", "README").ext(".md")
 end
 
 task :clean do
