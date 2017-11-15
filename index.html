@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Geodate</title>
+
+    <link href="/normalize.css" rel="stylesheet">
+    <link href="/styles.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <section class="screen"><div class="container"><h1>Geodate</h1>
+<p><strong>Definition:</strong> a geodate is a geocentric expression of a point in time.</p>
+</div></section><section class="screen"><div class="container"><h2>Legacy format</h2>
+<p>A geodate associates a position on the planet Earth with a date. A number of
+existing systems can be combined to locate an event in space and time:</p>
+<ul>
+<li>geographic <a href="https://en.wikipedia.org/wiki/Latitude">latitude</a> and <a href="https://en.wikipedia.org/wiki/Longitude">longitude</a> (degrees, minutes, seconds, direction)</li>
+<li><a href="https://en.wikipedia.org/wiki/Gregorian_calendar">gregorian calendar</a> (years, months, days)</li>
+<li><a href="https://en.wikipedia.org/wiki/24-hour_clock">24-hour clock</a> system (hours, minutes, seconds)</li>
+<li><a href="https://en.wikipedia.org/wiki/Time_zone">time zone</a> <a href="https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations">abbreviation</a></li>
+</ul>
+<p>But the result, based on many conventions, is quite complex looking.</p>
+<p><strong>Example:</strong></p>
+<pre><code>(51°10'44&quot; N, 1°49'34&quot; W) 2014-06-21 04:51:15 BST
+</code></pre>
+</div></section><section class="screen"><div class="container"><h2>Machine format</h2>
+<p>Fortunately a geodate can also be expressed with a simple set of three
+numbers that any machine can parse and understand.</p>
+<p><strong>Format:</strong></p>
+<pre><code>&lt;latitude&gt; &lt;longitude&gt; &lt;timestamp&gt;
+</code></pre>
+<ul>
+<li>latitude in decimal degrees</li>
+<li>longitude in decimal degrees</li>
+<li>seconds since unix epoch (starting at 00:00:00 UTC on 1 January 1970)</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code>51.1789 -1.8262 1403322675
+</code></pre>
+</div></section><section class="screen"><div class="container"><h2>Human readable format</h2>
+<p>A geodate is purely local, as such it would be natural to go back to a
+<a href="https://en.wikipedia.org/wiki/Lunisolar_calendar">lunisolar calendar</a> previously used by many cultures and based on the
+phases of the Moon for the <a href="https://en.wikipedia.org/wiki/Orbit_of_the_Moon">month</a> and the position of the Sun in the sky
+for the <a href="https://en.wikipedia.org/wiki/Earth%27s_orbit">year</a> and the <a href="https://en.wikipedia.org/wiki/Earth%27s_rotation">day</a>.</p>
+<p>With such a system, one would just have to go periodically outside and look up
+to know the time.</p>
+<p>This local notation should always convert back to universal time using the
+previously defined machine format.</p>
+<p><strong>Format:</strong></p>
+<pre><code>(&lt;latitude&gt; &lt;longitude&gt;) &lt;year&gt;:&lt;month&gt;:&lt;day&gt;:&lt;centiday&gt;:&lt;dimiday&gt;
+</code></pre>
+<ul>
+<li>geographic coordinates
+<ul>
+<li>latitude in decimal degrees</li>
+<li>longitude in decimal degrees</li>
+</ul>
+</li>
+<li>lunisolar calendar
+<ul>
+<li>year (count of <a href="https://en.wikipedia.org/wiki/December_solstice">second solstices</a> since unix epoch)</li>
+<li>month (count of <a href="https://en.wikipedia.org/wiki/New_moon">new moons</a> since begining of year)</li>
+<li>day (count of days since begining of month)</li>
+</ul>
+</li>
+<li>fractions of the <a href="https://en.m.wikipedia.org/wiki/Local_mean_time">local mean solar day</a> (86400 seconds)
+<ul>
+<li>centiday (0.01 days)</li>
+<li>dimiday  (0.01 centidays or 8.64 seconds)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code>(51.1789 -1.8262) 44:05:24:15:42
+</code></pre>
+</div></section><section class="screen"><div class="container"><h2>Computer programs</h2>
+<p>The following open source software use precise astronomical algorithms to
+convert a geodate from machine format into human readable format:</p>
+<ul>
+<li><a href="https://crates.io/crates/geodate">Rust library and binary</a> (<a href="https://github.com/vinc/geodate">source</a>)</li>
+<li><a href="https://play.google.com/store/apps/details?id=com.vinua.geodate">Android clock</a> (<a href="https://github.com/vinc/geodate-android">source</a>)</li>
+<li><a href="https://clock.geodate.org">Web clock</a> (<a href="https://github.com/vinc/geodate-wasm">source</a>)</li>
+</ul>
+</div></section><section class="screen"><div class="container"><h2>License</h2>
+<p>Made with ♥ by <a href="https://vinc.cc">vinc</a>, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a>.</p>
+</div></section>
+  </body>
+</html>
