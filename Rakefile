@@ -19,8 +19,9 @@ task :build do
   doc.each do |node|
     case node.type
     when :header
+      id = node.to_plaintext.chomp.downcase.tr(" ", "-")
       @body += "</div></section>" if found_header
-      @body += "<section class=\"screen\"><div class=\"container\">"
+      @body += "<section id=\"#{id}\" class=\"screen\"><div class=\"container\">"
       found_header = true
     end
     @body += node.to_html

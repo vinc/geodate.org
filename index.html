@@ -6,14 +6,14 @@
 
     <title>Geodate</title>
 
-    <link href="/normalize.css" rel="stylesheet">
+    <link href="/node_modules/normalize.css/normalize.css" rel="stylesheet">
     <link href="/styles.css" rel="stylesheet">
   </head>
 
   <body>
-    <section class="screen"><div class="container"><h1>Geodate</h1>
+    <section id="geodate" class="screen"><div class="container"><h1>Geodate</h1>
 <p><strong>Definition:</strong> a geodate is a geocentric expression of a point in time.</p>
-</div></section><section class="screen"><div class="container"><h2>Legacy format</h2>
+</div></section><section id="legacy-format" class="screen"><div class="container"><h2>Legacy format</h2>
 <p>A geodate associates a position on the planet Earth with a date. A number of
 existing systems can be combined to locate an event in space and time:</p>
 <ul>
@@ -26,7 +26,7 @@ existing systems can be combined to locate an event in space and time:</p>
 <p><strong>Example:</strong></p>
 <pre><code>(51°10'44&quot; N, 1°49'34&quot; W) 2014-06-21 04:51:15 BST
 </code></pre>
-</div></section><section class="screen"><div class="container"><h2>Machine format</h2>
+</div></section><section id="machine-format" class="screen"><div class="container"><h2>Machine format</h2>
 <p>Fortunately a geodate can also be expressed with a simple set of three
 numbers that any machine can parse and understand.</p>
 <p><strong>Format:</strong></p>
@@ -40,7 +40,7 @@ numbers that any machine can parse and understand.</p>
 <p><strong>Example:</strong></p>
 <pre><code>51.1789 -1.8262 1403322675
 </code></pre>
-</div></section><section class="screen"><div class="container"><h2>Human readable format</h2>
+</div></section><section id="human-readable-format" class="screen"><div class="container"><h2>Human readable format</h2>
 <p>A geodate is purely local, as such it would be natural to go back to a
 <a href="https://en.wikipedia.org/wiki/Lunisolar_calendar">lunisolar calendar</a> previously used by many cultures and based on the
 phases of the Moon for the <a href="https://en.wikipedia.org/wiki/Orbit_of_the_Moon">month</a> and the position of the Sun in the sky
@@ -76,7 +76,7 @@ previously defined machine format.</p>
 <p><strong>Example:</strong></p>
 <pre><code>(51.1789 -1.8262) 44:05:24:15:42
 </code></pre>
-</div></section><section class="screen"><div class="container"><h2>Computer programs</h2>
+</div></section><section id="computer-programs" class="screen"><div class="container"><h2>Computer programs</h2>
 <p>The following open source software use precise astronomical algorithms to
 convert a geodate from machine format into human readable format:</p>
 <ul>
@@ -84,8 +84,14 @@ convert a geodate from machine format into human readable format:</p>
 <li><a href="https://play.google.com/store/apps/details?id=com.vinua.geodate">Android clock</a> (<a href="https://github.com/vinc/geodate-android">source</a>)</li>
 <li><a href="https://clock.geodate.org">Web clock</a> (<a href="https://github.com/vinc/geodate-wasm">source</a>)</li>
 </ul>
-</div></section><section class="screen"><div class="container"><h2>License</h2>
+</div></section><section id="license" class="screen"><div class="container"><h2>License</h2>
 <p>Made with ♥ by <a href="https://vinc.cc">vinc</a>, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a>.</p>
 </div></section>
+
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/moment/min/moment.min.js"></script>
+    <script src="/node_modules/moment-timezone/builds/moment-timezone-with-data.min.js"></script>
+    <script src="/build/geodate.js"></script>
+    <script src="/app.js"></script>
   </body>
 </html>
