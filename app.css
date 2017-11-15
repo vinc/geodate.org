@@ -7,8 +7,13 @@ html, body {
 h2 {
   font-size: 1.2em; }
 
+ul {
+  padding-left: 1em; }
+
 .screen#geodate {
-  background: linear-gradient(#def, #fff);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(#102, #315 33%, #def);
   width: 100%;
   height: 100vh;
   display: flex;
@@ -21,6 +26,9 @@ h2 {
   .screen#geodate p {
     font-size: 1.5em;
     line-height: 1.4em; }
+
+.screen#legacy-format {
+  background: linear-gradient(#def, #fff); }
 
 .screen#computer-programs {
   background: linear-gradient(#fff, #def); }
