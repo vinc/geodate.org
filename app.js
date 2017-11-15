@@ -14,12 +14,9 @@ $(function() {
       var latitude = position.coords.latitude;
       
       var updateEverySecond = function() {
-        var timestamp = new Date() / 1000;
-
         var lat = toDMS(latitude, false);
         var lon = toDMS(longitude, true);
 
-        // (51°10'44" N, 1°49'34" W) 2014-06-21 04:51:15 BST
         var legacy =
           "(" +
           lat.deg + "°" + lat.min + "'" + lat.sec + "\" " + lat.dir +
@@ -29,7 +26,7 @@ $(function() {
           moment.tz(moment.tz.guess()).format("YYYY-MM-DD HH:mm:ss z");
         $(".screen#legacy-format pre:eq(0) code").html(legacy);
 
-        var machine = [latitude.toFixed(4), longitude.toFixed(4), timestamp.toFixed(0)].join(" ");
+        var machine = [latitude.toFixed(4), longitude.toFixed(4), moment().format("X")].join(" ");
         $(".screen#machine-format pre:eq(1) code").html(machine);
       };
       
