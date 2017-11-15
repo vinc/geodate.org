@@ -3,23 +3,35 @@ require "sass"
 require "rake"
 require "commonmarker"
 
-desc "Build website"
-task :build do
-  sass = Sass::Engine.new(File.read("styles.scss"), syntax: :scss)
+task default: %w[build]
+
+task build: %w[css html]
+
+task css: Rake::FileList.new("*.scss").ext(".css")
+task html: Rake::FileList.new("*.md").ext(".html").map { |f| f.sub("README", "index") }
+
+rule ".css" => ".scss" do |t|
+  puts "build #{t.name} from #{t.source}"
+  sass = Sass::Engine.new(File.read(t.source), syntax: :scss)
   css = sass.render
 
-  File.open("styles.css", "w") do |f|
+  File.open(t.name, "w") do |f|
     f.write(css)
   end
+end
 
-  @title = "Geodate"
+rule ".html" => -> (f) { source_for_html(f) } do |t|
+  puts "build #{t.source} to #{t.name}"
+  @title = ""
   @body = ""
   found_header = false
-  doc = CommonMarker.render_doc(File.read("README.md"))
+  doc = CommonMarker.render_doc(File.read(t.source))
   doc.each do |node|
     case node.type
     when :header
-      id = node.to_plaintext.chomp.downcase.tr(" ", "-")
+      text = node.to_plaintext.chomp
+      id = text.downcase.tr(" ", "-")
+      @title = text unless found_header
       @body += "</div></section>" if found_header
       @body += "<section id=\"#{id}\" class=\"screen\"><div class=\"container\">"
       found_header = true
@@ -28,14 +40,18 @@ task :build do
   end
   @body += "</div></section>" if found_header
 
-  html = ERB.new(File.read("index.html.erb")).result
+  html = ERB.new(File.read("app.html.erb")).result
 
-  File.open("index.html", "w") do |f|
+  File.open(t.name, "w") do |f|
     f.write(html)
   end
 end
 
+def source_for_html(f)
+  f.sub("README", "index").ext(".md")
+end
+
 task :clean do
   rm "index.html"
-  rm "styles.css"
+  rm "app.css"
 end
