@@ -100,3 +100,11 @@ convert a geodate from machine format into human readable format:
 [44]: https://github.com/vinc/geodate-android
 [45]: https://clock.geodate.org
 [46]: https://github.com/vinc/geodate-wasm
+
+
+## License
+
+Made with &hearts; by [vinc][51], licensed under [Creative Commons Attribution 4.0][52].
+
+[51]: https://vinc.cc
+[52]: https://creativecommons.org/licenses/by/4.0/
