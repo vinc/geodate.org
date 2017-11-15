@@ -69,7 +69,7 @@ previously defined machine format.
   - year (count of [second solstices][35] since unix epoch)
   - month (count of [new moons][36] since begining of year)
   - day (count of days since begining of month)
-- fractions of the [local mean solar day][37] (86400 seconds)
+- decimal fractions of the [local mean solar day][37] (86400 seconds)
   - centiday (0.01 days)
   - dimiday  (0.01 centidays or 8.64 seconds)
 
