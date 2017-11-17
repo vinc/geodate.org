@@ -66,7 +66,7 @@ previously defined machine format.
   - latitude in decimal degrees
   - longitude in decimal degrees
 - lunisolar calendar
-  - year (count of [second solstices][35] since unix epoch)
+  - year (count of [second solstices][35] since epoch)
   - month (count of [new moons][36] since begining of year)
   - day (count of days since begining of month)
 - decimal fractions of the [local mean solar day][37] (86400 seconds)
