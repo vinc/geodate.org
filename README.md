@@ -75,7 +75,7 @@ previously defined machine format.
 
 **Example:**
 
-    (51.1789 -1.8262) 44:05:24:15:42
+    (51.1789 -1.8262) 14:05:24:15:42
 
 [31]: https://en.wikipedia.org/wiki/Lunisolar_calendar
 [32]: https://en.wikipedia.org/wiki/Orbit_of_the_Moon

@@ -34,7 +34,7 @@ $(function() {
         var timestamp = new Date() / 1000;
         var date = window.geodate(timestamp, longitude);
 
-        var human = "(" + latitude.toFixed(4) + " " + longitude.toFixed(4) + ") " + date;
+        var human = "(" + latitude.toFixed(4) + " " + longitude.toFixed(4) + ") " + date.slice(3);
         $(".screen#human-readable-format pre:eq(1) code").html(human);
       };
 
