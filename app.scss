@@ -1,3 +1,5 @@
+$white: rgba(#fff, 0.95);
+
 html, body {
   color: rgba(#333, 0.9);
   font-size: 20px;
@@ -21,7 +23,14 @@ ul {
   padding-left: 1em;
 }
 
-$white: rgba(#fff, 0.95);
+@keyframes bounce {
+  0%, 75% {
+    margin-bottom: 0;
+  }
+  25% {
+    margin-bottom: 5px;
+  }
+}
 
 .screen#geodate {
   color: $white;
@@ -54,6 +63,9 @@ $white: rgba(#fff, 0.95);
     border-bottom: solid 5px $white;
     border-right: solid 5px $white;
     transform: rotate(45deg);
+  }
+  &:hover .container:after {
+    animation: bounce 1s ease infinite;
   }
 }
 .screen#legacy-format {

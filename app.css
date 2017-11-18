@@ -10,6 +10,11 @@ h2 {
 ul {
   padding-left: 1em; }
 
+@keyframes bounce {
+  0%, 75% {
+    margin-bottom: 0; }
+  25% {
+    margin-bottom: 5px; } }
 .screen#geodate {
   color: rgba(255, 255, 255, 0.95);
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
@@ -38,6 +43,8 @@ ul {
     border-bottom: solid 5px rgba(255, 255, 255, 0.95);
     border-right: solid 5px rgba(255, 255, 255, 0.95);
     transform: rotate(45deg); }
+  .screen#geodate:hover .container:after {
+    animation: bounce 1s ease infinite; }
 
 .screen#license {
   background: linear-gradient(#fff, #def); }
