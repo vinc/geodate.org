@@ -35,7 +35,7 @@ ul {
 .screen#geodate {
   color: $white;
   text-shadow: 0 0 2px rgba(#000, 0.2);
-  background: linear-gradient(#102, #315 33%, #fdd);
+  background: radial-gradient(circle at center 110vh, #F96, #336 80%, #112);
   width: 100%;
   height: 100vh;
   display: flex;
