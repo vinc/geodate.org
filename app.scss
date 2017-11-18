@@ -86,11 +86,9 @@ pre {
   background: rgba(#def, 0.5);
   color: rgba(#555, 0.9);
   border-radius: 5px;
-  overflow: auto;
-  padding: 1em 0;
-  code {
-    margin: 0 1em;
-  }
+  white-space: pre-wrap;
+  padding: 1em;
+  //overflow: auto;
 }
 a {
   text-decoration: none;
