@@ -13,7 +13,13 @@ $(function() {
       var longitude = position.coords.longitude;
       var latitude = position.coords.latitude;
       
-      var updateEverySecond = function() {
+      $("strong").each(function() {
+        if ($(this).text() === "Example:") {
+          $(this).text("Live example:");
+        }
+      });
+
+      var updateLegacyExample = function() {
         var lat = toDMS(latitude, false);
         var lon = toDMS(longitude, true);
 
@@ -25,23 +31,30 @@ $(function() {
           ") " +
           moment.tz(moment.tz.guess()).format("YYYY-MM-DD HH:mm:ss z");
         $(".screen#legacy-format pre:eq(0) code").html(legacy);
+      };
 
-        var machine = [latitude.toFixed(4), longitude.toFixed(4), moment().format("X")].join(" ");
+      var updateMachineExample = function() {
+        var timestamp = new Date() / 1000;
+        var machine = latitude.toFixed(4) + " " + longitude.toFixed(4) + " " + timestamp.toFixed(2);
         $(".screen#machine-format pre:eq(1) code").html(machine);
       };
       
-      var updateEveryDimiday = function() {
-        var timestamp = new Date() / 1000;
-        var date = window.geodate(timestamp, longitude);
+      var updateHumanExample = function() {
+        if (typeof window.geodate === "function") {
+          var timestamp = new Date() / 1000;
+          var date = window.geodate(timestamp, longitude);
 
-        var human = "(" + latitude.toFixed(4) + " " + longitude.toFixed(4) + ") " + date.slice(3);
-        $(".screen#human-readable-format pre:eq(1) code").html(human);
+          var human = "(" + latitude.toFixed(4) + " " + longitude.toFixed(4) + ") " + date.slice(3);
+          $(".screen#human-readable-format pre:eq(1) code").html(human);
+        }
       };
 
-      updateEverySecond();
-      updateEveryDimiday();
-      setInterval(updateEverySecond, 1000);
-      setInterval(updateEveryDimiday, 8640);
+      updateLegacyExample();
+      updateMachineExample();
+      updateHumanExample();
+      setInterval(updateLegacyExample, 1000);
+      setInterval(updateMachineExample, 10);
+      setInterval(updateHumanExample, 8640);
     });
   }
 });
