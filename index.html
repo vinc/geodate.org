@@ -13,20 +13,23 @@
   <body>
     <section id="geodate" class="screen"><div class="container"><h1>Geodate</h1>
 <p><strong>Definition:</strong> a geodate is a geocentric expression of a point in time.</p>
-</div></section><section id="legacy-format" class="screen"><div class="container"><h2>Legacy format</h2>
-<p>A geodate associates a position on the planet Earth with a date. A number of
-existing systems can be combined to locate an event in space and time:</p>
+</div></section><section id="specification" class="screen"><div class="container"><h2>Specification</h2>
+<p>This document defines three different formats of geodate representation
+for associating a position on the planet Earth with a date.</p>
+</div></section><section id="legacy-format" class="screen"><div class="container"><h3>Legacy format</h3>
+<p>A number of existing systems can be combined to locate an event in space and time:</p>
 <ul>
 <li>geographic <a href="https://en.wikipedia.org/wiki/Latitude">latitude</a> and <a href="https://en.wikipedia.org/wiki/Longitude">longitude</a> (degrees, minutes, seconds, direction)</li>
 <li><a href="https://en.wikipedia.org/wiki/Gregorian_calendar">gregorian calendar</a> (years, months, days)</li>
 <li><a href="https://en.wikipedia.org/wiki/24-hour_clock">24-hour clock</a> (hours, minutes, seconds)</li>
 <li><a href="https://en.wikipedia.org/wiki/Time_zone">time zone</a></li>
 </ul>
-<p>But the result, based on many different conventions, can be difficult to read.</p>
+<p>But the result, though most familiar, can be source of errors due to the many
+different conventions used for representing the various parts.</p>
 <p><strong>Example:</strong></p>
 <pre><code>(51°10'44&quot; N, 1°49'34&quot; W) 2014-06-21 04:51:15 BST
 </code></pre>
-</div></section><section id="machine-format" class="screen"><div class="container"><h2>Machine format</h2>
+</div></section><section id="machine-format" class="screen"><div class="container"><h3>Machine format</h3>
 <p>Fortunately a geodate can also be expressed with a simple set of three
 numbers that any machine can parse and understand.</p>
 <p><strong>Format:</strong></p>
@@ -40,7 +43,7 @@ numbers that any machine can parse and understand.</p>
 <p><strong>Example:</strong></p>
 <pre><code>51.1789 -1.8262 1403322675
 </code></pre>
-</div></section><section id="human-readable-format" class="screen"><div class="container"><h2>Human readable format</h2>
+</div></section><section id="human-readable-format" class="screen"><div class="container"><h3>Human readable format</h3>
 <p>A geodate is purely local, as such it would be natural to go back to a
 <a href="https://en.wikipedia.org/wiki/Lunisolar_calendar">lunisolar calendar</a> previously used by many cultures and based on the
 phases of the Moon for the <a href="https://en.wikipedia.org/wiki/Orbit_of_the_Moon">month</a> and the position of the Sun in the sky
@@ -48,7 +51,7 @@ for the <a href="https://en.wikipedia.org/wiki/Earth%27s_orbit">year</a> and the
 <p>With such a system, one would just have to go periodically outside and look up
 to know the time.</p>
 <p>This local notation should always convert back to universal time using the
-previously defined machine format.</p>
+previously defined computer friendly format.</p>
 <p><strong>Format:</strong></p>
 <pre><code>(&lt;latitude&gt; &lt;longitude&gt;) &lt;year&gt;:&lt;month&gt;:&lt;day&gt;:&lt;centiday&gt;:&lt;dimiday&gt;
 </code></pre>

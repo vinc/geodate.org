@@ -17,6 +17,9 @@ html, body {
     "Helvetica Neue", Arial, sans-serif;
 }
 h2 {
+  font-size: 1.4em;
+}
+h3 {
   font-size: 1.2em;
 }
 ul {
@@ -68,13 +71,7 @@ ul {
     animation: bounce 1s ease infinite;
   }
 }
-.screen#legacy-format {
-  //background: linear-gradient(#def, #fff);
-}
-.screen#computer-programs {
-}
 .screen#license {
-  //background: #def;
   background: linear-gradient(#fff, #def);
 }
 .container {

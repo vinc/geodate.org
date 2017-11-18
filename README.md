@@ -3,17 +3,22 @@
 **Definition:** a geodate is a geocentric expression of a point in time.
 
 
-## Legacy format
+## Specification
 
-A geodate associates a position on the planet Earth with a date. A number of
-existing systems can be combined to locate an event in space and time:
+This document defines three different formats of geodate representation
+for associating a position on the planet Earth with a date.
+
+### Legacy format
+
+A number of existing systems can be combined to locate an event in space and time:
 
 - geographic [latitude][1] and [longitude][2] (degrees, minutes, seconds, direction)
 - [gregorian calendar][3] (years, months, days)
 - [24-hour clock][4] (hours, minutes, seconds)
 - [time zone][5]
 
-But the result, based on many different conventions, can be difficult to read.
+But the result, though most familiar, can be source of errors due to the many
+different conventions used for representing the various parts.
 
 **Example:**
 
@@ -27,7 +32,7 @@ But the result, based on many different conventions, can be difficult to read.
 [6]: https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations
 
 
-## Machine format
+### Machine format
 
 Fortunately a geodate can also be expressed with a simple set of three
 numbers that any machine can parse and understand.
@@ -45,7 +50,7 @@ numbers that any machine can parse and understand.
     51.1789 -1.8262 1403322675
 
 
-## Human readable format
+### Human readable format
 
 A geodate is purely local, as such it would be natural to go back to a
 [lunisolar calendar][31] previously used by many cultures and based on the
@@ -56,7 +61,7 @@ With such a system, one would just have to go periodically outside and look up
 to know the time.
 
 This local notation should always convert back to universal time using the
-previously defined machine format.
+previously defined computer friendly format.
 
 **Format:**
 
