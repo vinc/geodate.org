@@ -10,10 +10,10 @@ existing systems can be combined to locate an event in space and time:
 
 - geographic [latitude][1] and [longitude][2] (degrees, minutes, seconds, direction)
 - [gregorian calendar][3] (years, months, days)
-- [24-hour clock][4] system (hours, minutes, seconds)
-- [time zone][5] [abbreviation][6]
+- [24-hour clock][4] (hours, minutes, seconds)
+- [time zone][5]
 
-But the result, based on many conventions, is quite complex looking.
+But the result, based on many different conventions, can be difficult to read.
 
 **Example:**
 
@@ -38,7 +38,7 @@ numbers that any machine can parse and understand.
 
 - latitude in decimal degrees
 - longitude in decimal degrees
-- seconds since unix epoch (starting at 00:00:00 UTC on 1 January 1970)
+- seconds since unix epoch
 
 **Example:**
 
